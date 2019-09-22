@@ -1,5 +1,8 @@
 package com.training.linux.testing;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,14 +62,14 @@ public class LoginTest {
 			//System.out.println(e.getText());
 			if (e.getText().contains("Gamecheck") && !e.getText().contains("Not you") && !e.getText().contains("Log in as")) {
 				userfound = true;
-				userfound = true;
 				break;
 			}
 		}
 		
-		Assert.assertTrue(userfound);
+		AssertJUnit.assertTrue(userfound);
 	}
 	
+	@AfterMethod
 	@AfterTest
 	public void tearDown() {
 		driver.quit();
